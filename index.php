@@ -23,34 +23,21 @@
   <script src="js/progressbar.min.js"></script>
   <!-- Parallax -->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container" id="nav-container">
-      <!-- add essa class -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <img id="logo" src="img/logo3 2.png" alt="Semed"> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-          <div class="navbar-nav">
-            <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
-          </div>
-        </div>
-      </nav>
-    </div> 
-  </header>
         <!-- slider -->
       <div id="mainSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="img/1907.i211.014..school stationery realistic composition.jpg" class="d-block w-100" alt="Semed">
+            <img src="img/matricula22.png" class="d-block w-100" alt="Semed">
               <a href="https://br.freepik.com/fotos-vetores-gratis/fundo">Fundo vetor criado por macrovector - br.freepik.com</a><br>
               <div class="carousel-caption d-md-block" style="right: 1.09023% !important; left: 65% !important;">
-                <h5>Faça aqui sua Pré-Matrícula:</h5>
+                <h5 style="font-family: 'Aleo', serif;">FAÇA AQUI A SUA PRÉ-MATRÍCULA:</h5>
                 <br>
-                <a href="formulario.php" class="main-btn">Pré-Matrícula</a>
+                <a href="formulario.php" class="main-btn" style="font-family: 'Aleo', serif;"><strong>Pré-Matrícula</strong></a>
               </div>
             </div>
          </div>

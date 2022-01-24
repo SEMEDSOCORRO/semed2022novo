@@ -130,25 +130,23 @@
         <form action="processa2.php" method="post" >
             <input type="hidden" name="qtdVagas" id="qtdVagas" />
        	        		
-            <h1 style="margin-bottom: 20px;">Formulário de Matrícula</h1>
+            <h1 style="margin-bottom: 20px;">Formulário de Pré-Matrícula</h1>
             <hr>
             <fieldset>
             <div class="escolas" ></div>
+                <br>
                 <label > Escolas:</label>
-                <select name="escolas" id = "escolas"  onchange="preencheSeries(this.value)">
+                <select style="background-color: white" name="escolas" id = "escolas"  onchange="preencheSeries(this.value)">
                    <option value=""></option>
                 </select>
                 <br>
                 <label> Séries: </label>
-                <select name="series" id="series"  styles="padding-left: 50px" onchange="preencheQuantidadeVagas(this.value)">
+                <select style="background-color: white" name="series" id="series"  styles="padding-left: 50px" onchange="preencheQuantidadeVagas(this.value)">
                     <option value=""></option>
                 </select>
-                    
+                
                 <div>
-                    <div>
-                        <p>Caso não encontre vaga para escola desejada click aqui</p>
-                        <p><input type="submit"  name="lista de reserva" value="Lista de Reserva" class="botao"></p>
-                    </div>
+                    <br>
                     <hr>
                     <legend><h3>Dados Pessoais:</h3></legend>
     
@@ -158,7 +156,7 @@
                             <td>
                                 <label>Nome: </label>
                             </td>
-                            <td align="left">
+                            <td>
                                 <input style="background-color:#fff" type="text" required name="nome" size="20" maxlength="40" id="nome">
                             </td>
                         </tr>
@@ -260,7 +258,7 @@
                            <label for="estado">Estado:</label>
                           </td>
                           <td align="left">
-                           <select name="estado"> 
+                           <select style="background-color: white" name="estado"> 
                            <option value=""></option>
                            <option value="ac">Acre</option> 
                            <option value="al">Alagoas</option> 
