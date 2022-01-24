@@ -109,14 +109,22 @@
   <link rel="stylesheet" href="css/form.css">
 </head>
 <body onload="preencheEscolas();">
-    <header>
-        <div class="container" id="nav-container">
-            <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-            <a class="navbar-brand" href="index.php">
-                <img id="logo" src="img/logo3 2.png" alt="Semed"> 
-            </a>
+<header>
+    <div class="container" id="nav-container">
+      <!-- add essa class -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <img id="logo" src="img/logo3 2.png" alt="Semed"> 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+          <div class="navbar-nav">
+            <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
+          </div>
         </div>
-     </header>
+      </nav>
+    </div> 
+  </header>
 
      <div>
         <form action="processa2.php" method="post" >
