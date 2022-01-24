@@ -9,6 +9,7 @@
   <!-- Estilos -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/form.css">
   <!-- Scripts (jQuery não pode ser o slim que vem do Boostrap) -->
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -36,10 +37,8 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" id="home-menu" href="#">Home</a>
-            <a class="nav-item nav-link" id="about-menu" href="#prematricula">Informações da Pré-Matrícula</a>
-            <a class="nav-item nav-link" id="contatos-menu" href="#contato">Contatos</a>
-            </div>
+            <a style="font-size:large;border-style:solid; border-radius:20px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
+          </div>
         </div>
       </nav>
     </div> 
@@ -47,15 +46,18 @@
         <!-- slider -->
       <div id="mainSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/1907.i211.014..school stationery realistic composition.jpg" class="d-block w-100" alt="Semed">
-            <a href="https://br.freepik.com/fotos-vetores-gratis/fundo">Fundo vetor criado por macrovector - br.freepik.com</a><br>
-              <div class="carousel-caption d-md-block"><br>
-              <h2>Faça aqui sua Pré-Matrícula</h2>  <br>
-            <a target="_self" href="formulario.php" class="main-btn">Pré-Matrícula</a>
+            <div class="carousel-item active">
+              <img src="img/1907.i211.014..school stationery realistic composition.jpg" class="d-block w-100" alt="Semed">
+              <a href="https://br.freepik.com/fotos-vetores-gratis/fundo">Fundo vetor criado por macrovector - br.freepik.com</a><br>
+              <div class="carousel-caption d-md-block" style="right: 1.09023% !important; left: 65% !important;">
+                <h5>Faça aqui sua Pré-Matrícula</h5>
+                <a target="_blank" href="formulario.php" class="main-btn">Pré-Matrícula</a>
+              </div>
             </div>
-          </div>
          </div>
+
+
+
       <!-- Sobre a Matrícula-->
       <div id="about-area">
         <div class="container">
@@ -72,20 +74,20 @@
                     <i class="fas fa-check"></i> 
                     A matrícula dos alunos será efetivada mediante a apresentação dos documentos que se seguem: 
                     <p><li class="padded_li"><strong>I - do aluno:</strong><li></p>
-                    <li><strong>A)</strong>	Duas fotos 3x4</l1>
-                    <li><strong>B)</strong>	Cópia da Certidão de Nascimento</li>
-                    <li><strong>C)</strong>	Cópia do RG</l1>
-                    <li><strong>D)</strong>	cópia do CPF</l1>
-                    <li><strong>E)</strong>	Cópia do cartão de vacinação atualizada para TODOS os alunos</l1>
-                    <li><strong>F)</strong>	Comprovante do Número de Identificação Social (NIS)</l1>
-                    <li><strong>G)</strong>	Cópia do cartão do Sistema Único de Saúde (SUS)</l1>
+                    <li><strong>A)</strong>	Duas fotos 3x4;</l1>
+                    <li><strong>B)</strong>	Cópia da Certidão de Nascimento;</li>
+                    <li><strong>C)</strong>	Cópia do RG;</l1>
+                    <li><strong>D)</strong>	cópia do CPF;</l1>
+                    <li><strong>E)</strong>	Cópia do cartão de vacinação atualizada para TODOS os alunos;</l1>
+                    <li><strong>F)</strong>	Comprovante do Número de Identificação Social (NIS);</l1>
+                    <li><strong>G)</strong>	Cópia do cartão do Sistema Único de Saúde (SUS);</l1>
                     <li><strong>H)</strong>	Comprovante de escolaridade anterior, em caso de prosseguimento de estudos, Transferência ou Declaração de Escolaridade.</l1>
                     <p style="text-align: justify"><strong>II - dos pais ou responsável:</strong></p>
-                    <li><strong>A)</strong>	Cópia do RG</l1>
-                    <li><strong>B)</strong>	Cópia do CPF</l1>
+                    <li><strong>A)</strong>	Cópia do RG;</l1>
+                    <li><strong>B)</strong>	Cópia do CPF;</l1>
                     <li><strong>C)</strong>	Comprovante do NIS, quando for o caso;</l1>
-                    <li><strong>D)</strong>	Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses.</l1>
-                    <li><strong>E)</strong>	Telefone para contato, preferencialmente celular, e e-mail dos pais ou responsável legal</l1>
+                    <li><strong>D)</strong>	Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses;</l1>
+                    <li><strong>E)</strong>	Telefone para contato, preferencialmente celular, e e-mail dos pais ou responsável legal;</l1>
                     <li><strong>F)</strong>	Termo de Guarda, definitivo ou provisório, declaração de responsabilidade ou declaração parental (são considerados responsáveis, para fins de matrícula, os avós e tios biológicos).</l1>
                     <p style="text-align: justify"><strong>Parágrafo único:</strong> As cópias dos documentos deverão ser entregues mediante apresentação dos originais, quando for considerada segura a tramitação destes documentos impressos.</l1><p> 
                 </ul>
@@ -109,7 +111,7 @@
             </div>
             <div class="col-md-4 contact-box">
               <i class="fas fa-envelope"></i>
-              <p><span class="contact-tile">E-mail:</span>matriculas@semedsocorro.com.br</p>
+              <p><span class="contact-tile">E-mail: </span>matriculas@semedsocorro.com.br</p>
             </div>
             <div class="col-md-4 contact-box">
               <i class="fas fa-map-marker-alt"></i>
@@ -124,7 +126,7 @@
                 <input type="text" class="form-control" placeholder="E-mail" name="email">
                 <input type="text" class="form-control" placeholder="Assunto" name="subject">
                 <textarea class="form-control" rows="3" placeholder="Sua mensagem..." name="message"></textarea>
-                <input type="submit" class="enviar"  value="Enviar" />
+                <input class="botao" type="submit" class="enviar"  value="Enviar" />
               </form>
             </div>
           </div>
