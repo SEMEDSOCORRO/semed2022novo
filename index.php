@@ -28,16 +28,14 @@
   <header>
     <div class="container" id="nav-container">
       <!-- add essa class -->
-      <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <a class="navbar-brand" href="matricula2022.php">
-          <img id="logo" src="img/logo3 2.png" alt="Semed"> 
-        </a>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <img id="logo" src="img/logo3 2.png" alt="Semed"> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
           <div class="navbar-nav">
-            <a style="font-size:large;border-style:solid; border-radius:20px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
+            <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
           </div>
         </div>
       </nav>
@@ -50,8 +48,9 @@
               <img src="img/1907.i211.014..school stationery realistic composition.jpg" class="d-block w-100" alt="Semed">
               <a href="https://br.freepik.com/fotos-vetores-gratis/fundo">Fundo vetor criado por macrovector - br.freepik.com</a><br>
               <div class="carousel-caption d-md-block" style="right: 1.09023% !important; left: 65% !important;">
-                <h5>Faça aqui sua Pré-Matrícula</h5>
-                <a target="_blank" href="formulario.php" class="main-btn">Pré-Matrícula</a>
+                <h5>Faça aqui sua Pré-Matrícula:</h5>
+                <br>
+                <a href="formulario.php" class="main-btn">Pré-Matrícula</a>
               </div>
             </div>
          </div>
