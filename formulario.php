@@ -99,44 +99,6 @@
                     selectElement.remove(i);
                 }
             }
-
-            function mascara(i){
-   
-   var v = i.value;
-   
-   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
-      i.value = v.substring(0, v.length-1);
-      return;
-   }
-   
-   i.setAttribute("maxlength", "14");
-   if (v.length == 3 || v.length == 7) i.value += ".";
-   if (v.length == 11) i.value += "-";
-
-}
-
-
-function mascaraData(i){
-   
-   var v = i.value;
-   
-   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
-      i.value = v.substring(0, v.length-1);
-      return;
-   }
-
-}
-
-function mascaraTexto(i){
-   
-   var v = i.value;
-   
-   if(!isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
-      i.value = v.substring(0, v.length-1);
-      return;
-   }
-
-}
   </script>
 
     <!-- Fonte -->
@@ -148,72 +110,135 @@ function mascaraTexto(i){
 </head>
 <body onload="preencheEscolas();">
     <header>
-              <div class="container" id="nav-container">
-              <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-              <a class="navbar-brand" href="index.php">
-              <img id="logo" src="img/logo3 2.png" alt="Semed"> 
-                </a>
+        <div class="container" id="nav-container">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <a class="navbar-brand" href="index.php">
+                <img id="logo" src="img/logo3 2.png" alt="Semed"> 
+            </a>
+        </div>
      </header>
 
      <div>
         <form action="processa2.php" method="post" >
             <input type="hidden" name="qtdVagas" id="qtdVagas" />
        	        		
-         <h1>Formulário de Matrícula</h1>
-         <hr>
-         <fieldset>
-         <div class="escolas" ></div>
-                            <label > Escolas:</label>
-                            <select name="escolas"id = 'escolas'  onchange="preencheSeries(this.value)">
-                           <option value=""></option>
-                            </select><br>
-                                <div>
-                                <label> Séries: </label>
-                                <select name="series" id="series"  onchange="preencheQuantidadeVagas(this.value)">
-                                        <option value=""></option>
-                                    </select><br>
-                         		<legend><h3>Dados Pessoais:</h3></legend>
+            <h1 style="margin-bottom: 20px;">Formulário de Matrícula</h1>
+            <hr>
+            <fieldset>
+            <div class="escolas" ></div>
+                <label > Escolas:</label>
+                <select name="escolas" id = "escolas"  onchange="preencheSeries(this.value)">
+                   <option value=""></option>
+                </select>
+                <br>
+                <label> Séries: </label>
+                <select name="series" id="series"  styles="padding-left: 50px" onchange="preencheQuantidadeVagas(this.value)">
+                    <option value=""></option>
+                </select>
+                    
+                <div>
+                    <div>
+                        <p>Caso não encontre vaga para escola desejada click aqui</p>
+                        <p><input type="submit"  name="lista de reserva" value="Lista de Reserva" class="botao"></p>
+                    </div>
+                    <hr>
+                    <legend><h3>Dados Pessoais:</h3></legend>
     
-     			<label for="nome">Nome:
-    			<input type="text" required name="nome" size="40" maxlength="40" id="nome" placeholder="Nome do Aluno">
-                 </label>
-                 <label>CPF:
-                 <input type="text" required name="cpf" size="20" maxlength="40" id="fname" placeholder="CPF" oninput="mascara(this)">
-                 </label>		
-         		 <label>Nascimento:
-         		 <input type="data" required name="dia" size="1" maxlength="2" id="dia" placeholder="dia" oninput="mascaraData(this)">/
-         		 <input type="data" required name="mes" size="1" maxlength="2" id="mes" placeholder="mês" oninput="mascaraData(this)">/
-         		 <input type="data" required name="ano" size="3" maxlength="6" id="ano" placeholder="ano" oninput="mascaraData(this)">
-         		 </label>
-         		 <label> Mãe:
-        		 <input type="text" required name="mae" size="40" maxlength="40" id="mae" placeholder="mãe" oninput="mascaraTexto(this)"><br>
-                 </label>
-     			<label> Pai:
-         		<input type="text" required name="pai" size="40" maxlength="40" id="pai" placeholder="pai" oninput="mascaraTexto(this)"><br>
-                 </label>
-         		<label>Telefone: DDD (
-         				<input type="tel" required name="ddd" size="1" maxlength="2" id="ddd"placeholder="DDD">
-         				Tel:<input type="tel" required name="telefone" size="12" maxlength="12" id="tel" placeholder="telefone">
-         		     </fieldset>
+                    <fieldset>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Nome: </label>
+                            </td>
+                            <td align="left">
+                                <input style="background-color:#fff" type="text" required name="nome" size="20" maxlength="40" id="nome">
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <label>CPF:</label>
+                            </td>
+                            <td>
+                                <input type="text" required name="cpf" size="40" maxlength="40" id="fname">
+                            </td>
+                        </tr>    
+                        
+                        <tr>
+                            <td>
+                                <label> Mãe:</label>
+                            </td>
+                            <td>
+                                <input type="text" required name="mae" size="40" maxlength="40" id="mae">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label> Pai:</label>
+                            </td>
+                            <td>
+                                <input type="text" required name="pai" size="40" maxlength="40" id="pai">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <br>
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Data de Nascimento: </label><br>
+                                <input type="data" required name="dia" size="1" maxlength="2" id="dia"> <strong>/</strong>
+                                <input type="data" required name="mes" size="1" maxlength="2" id="mes"> /
+                                <input type="data" required name="ano" size="3" maxlength="6" id="ano">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <br>
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Número para contato:</label><br>  
+                                 DDD: <input type="tel" required name="ddd" size="1" maxlength="2" id="ddd">
+                                 Tel: <input type="tel" required name="telefone" size="12" maxlength="8" id="tel">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <br>
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                <label>E-mail:</label>
+                                <input type="email" required name="email" size="35" maxlength="40" id="email">
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
          			<br>
                      <hr>
+                     <legend><h3>Dados de Endereço</h3></legend>
                      <fieldset>
-                        <legend><h3>Dados de Endereço</h3></legend>
-                        <table cellspacing="10">
-                         <tr >
-                          <td >
-                           <label for="rua">Rua:</label>
-                          </td>
-                          <td align="left">
-                           <input type="text" name="rua" size="35">
-                          </td>
-                          <td>
-                           <label for="numero">Numero:</label>
-                          </td>
-                          <td align="left">
-                           <input type="text" name="numero" size="6">
-                          </td>
-                         </tr>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="rua">Rua:</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="rua" size="35">
+                                </td>
+                                <td>
+                                    <label style="margin-left: 10px; margin-right: 10px;" for="numero">Numero:</label>
+                                </td>
+                                
+                                <td>
+                                    <input type="text" name="numero" size="6">
+                                </td>
+                            </tr>
                          <tr>
                           <td>
                            <label for="bairro">Bairro: </label>
@@ -283,7 +308,7 @@ function mascaraTexto(i){
         				        </div>
                                 <div style="align-items: center;": 3;>
                                <p> <label>
-                                    <input type="submit"  name="enviar" value="Enviar">
+                                    <input type="submit"  name="enviar" value="Enviar" class="botao">
                                                                         
                                 </label></p>
                                 </div>

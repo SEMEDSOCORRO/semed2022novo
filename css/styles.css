@@ -91,7 +91,15 @@ header, .navbar {
 }
 
 #mainSlider .carousel-caption {
-    top: 30%;
+  position: absolute;
+  right: 15%;
+  bottom: 100px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: right; 
 }
 
 #mainSlider .carousel-caption h2 {
