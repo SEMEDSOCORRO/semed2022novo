@@ -6,16 +6,28 @@ form {
      }
 
 input {
-font-family: sans-serif;
-font-weight: normal;
-font-size: 13pt;
-    }
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
 
 input:hover {
     background-color: #dddddd;
-    
 }
 
+input, select {
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #04a486;
+}
+
+select {
+    border-width: 2px;
+}
+
+input.botao {
+    background-color: #04a486;
+    color:#fff;
+}
 legend {
     color: #888888;
     font-weight: bold;
@@ -28,4 +40,13 @@ fieldset{
     margin: 20px;
     
 }
+
+label {
+    margin-bottom: 0px;
+}
+
+h3 {
+    color: black;
+}
+
 
