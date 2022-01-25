@@ -28,7 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-        <!-- slider -->
+      <!-- slider -->
       <div id="mainSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -41,48 +41,19 @@
               </div>
             </div>
          </div>
-
-
-
       <!-- Sobre a Matrícula-->
-      <div id="about-area">
-        <div class="container">
-            <div class="row">
-              <div class="col-12"> <br><br><br>
-                <h3  id="prematricula"  class="main-title">Sobre a Matrícula</h3>
-              </div>
-              <div class="col-md-6">
-                <img class="img-fluid" src="img/laptop.jpg " alt="Sobre a Matrícula">
-              </div>
-              <div class="col-md-6">
-                <h3 class="about-title">Documentos necessários da Pré-Matrícula</h3>
-                <ul id="about-list">
-                    <i class="fas fa-check"></i> 
-                    A matrícula dos alunos será efetivada mediante a apresentação dos documentos que se seguem: 
-                    <p><li class="padded_li"><strong>I - do aluno:</strong><li></p>
-                    <li><strong>A)</strong>	Duas fotos 3x4;</l1>
-                    <li><strong>B)</strong>	Cópia da Certidão de Nascimento;</li>
-                    <li><strong>C)</strong>	Cópia do RG;</l1>
-                    <li><strong>D)</strong>	cópia do CPF;</l1>
-                    <li><strong>E)</strong>	Cópia do cartão de vacinação atualizada para TODOS os alunos;</l1>
-                    <li><strong>F)</strong>	Comprovante do Número de Identificação Social (NIS);</l1>
-                    <li><strong>G)</strong>	Cópia do cartão do Sistema Único de Saúde (SUS);</l1>
-                    <li><strong>H)</strong>	Comprovante de escolaridade anterior, em caso de prosseguimento de estudos, Transferência ou Declaração de Escolaridade.</l1>
-                    <p style="text-align: justify"><strong>II - dos pais ou responsável:</strong></p>
-                    <li><strong>A)</strong>	Cópia do RG;</l1>
-                    <li><strong>B)</strong>	Cópia do CPF;</l1>
-                    <li><strong>C)</strong>	Comprovante do NIS, quando for o caso;</l1>
-                    <li><strong>D)</strong>	Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses;</l1>
-                    <li><strong>E)</strong>	Telefone para contato, preferencialmente celular, e e-mail dos pais ou responsável legal;</l1>
-                    <li><strong>F)</strong>	Termo de Guarda, definitivo ou provisório, declaração de responsabilidade ou declaração parental (são considerados responsáveis, para fins de matrícula, os avós e tios biológicos).</l1>
-                    <p style="text-align: justify"><strong>Parágrafo único:</strong> As cópias dos documentos deverão ser entregues mediante apresentação dos originais, quando for considerada segura a tramitação destes documentos impressos.</l1><p> 
-                </ul>
-               </ul>
-              </div>
-            </div>
+      <div id="mainSlider" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/pagina2.png" class="d-block w-100" alt="Semed">
+          <div class="carousel-caption d-md-block"><br>
+            <ul>
+            </ul>
           </div>
-      </div> 
-      <!-- Rodapé -->
+        </div>
+      </div>
+    </div>
+    <!-- Rodapé -->
   <footer>
     <div id="contact-area">
       <div class="container">

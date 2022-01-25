@@ -83,7 +83,7 @@ if ($matriculaEfetuada) {
                 </tr>
                 <tr>
                         <td> Escola / Série </td>
-                        <td> <?php echo $escolas ?> / <?pho echo $series ?> </td>
+                        <td> <?php echo $escolas ?> / <?php echo $series ?> </td>
                 </tr>
                 
                 <tr>
