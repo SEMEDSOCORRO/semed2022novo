@@ -68,6 +68,35 @@ if ($permiteMatricula) {
 }
 
 
+?>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <header>
+        <div class="container" id="nav-container">
+        <!-- add essa class -->
+            <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <img id="logo" src="img/logo3 2.png" alt="Semed"> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                <div class="navbar-nav">
+                    <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Inicio</a>  
+                </div>
+            </div>
+            </nav>
+        </div> 
+        <br>
+        <br>
+        <br> 
+    </header>
+<body>
+<?php
 
 if ($matriculaEfetuada) {
         $getDadosMatricula = "select * from matricula where escolas = '$escolas' and series = '$series' and cpf = '$cpf'";
@@ -96,7 +125,7 @@ if ($matriculaEfetuada) {
                 </tr>
                 <tr>
                         <td> Escola / Série </td>
-                        <td> <?php echo $escolas ?> / <?pho echo $series ?> </td>
+                        <td> <?php echo $escolas ?> / <?php echo $series ?> </td>
                 </tr>
                 
                 <tr>
@@ -108,18 +137,14 @@ if ($matriculaEfetuada) {
         
                 </tr>
         </table>
-
-
-
-
-
-
-        <?php
+       <?php
 
 } else {
         // Trabalhar na reserva
-        echo "Não tem vagas para essa série, deseja fazer a reserva Sim ou Não";
         ?>
+        <body style="text-align: center;">
+        <div align="center">
+        <h1> <?php echo "Infelizmente não há vagas disponíveis para essa escola nesse ano/série, gostaria de reservar uma vaga ou tentar uma vaga em outra escola?";?> </h1>
         <form method="post" action="reserva.php">
                 <input type="hidden" value="<?php echo $nome      ;?>" name="nome"/>
                 <input type="hidden" value="<?php echo $cpf       ;?>" name="cpf"/>
@@ -142,26 +167,14 @@ if ($matriculaEfetuada) {
                 <input type="hidden" value="<?php echo $turno     ;?>" name="turno"/>
                 <input type="hidden" value="<?php echo $matricula ;?>" name="matricula"/>
                 <input type="hidden" value="<?php echo $qtdVagas  ;?>" name="qtdVagas"/>
-                <input type="submit" value="Efetuar Reserva" />
-                <input type="button" value="Voltar" onclick="history.back()" />
+                <input type="submit" value="SIM, fazer cadastro reserva" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
+                <input type="button" value="NÃO, tentar em outra escola" onclick="history.back()" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
         </form> 
-
-
-
-
-
-        <?php
+        </body>
+       <?php
 
 
 }
-
-
-
-
-
-
-
-   
 
 mysqli_close($conexao2)
             

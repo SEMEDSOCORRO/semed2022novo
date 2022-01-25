@@ -158,7 +158,7 @@ function mascaraTexto(i){
             
             <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                 <div class="navbar-nav">
-                    <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
+                    <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Inicio</a>  
                 </div>
             </div>
             </nav>
@@ -342,7 +342,7 @@ function mascaraTexto(i){
                             <label for="cep">CEP: </label>
                         </td>
                         <td align="left">
-                            <input type="text" name="cep" size="5" maxlength="5"> - <input type="text" name="cep2" size="3" maxlength="3">
+                            <input type="text" name="cep" size="5" maxlength="5" oninput="mascaraData(this)"> - <input type="text" name="cep2" size="3" maxlength="3" oninput="mascaraData(this)">
                         </td>
                     </tr>
                     </table>
