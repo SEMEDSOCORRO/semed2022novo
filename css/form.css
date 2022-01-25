@@ -11,14 +11,14 @@ input {
 }
 
 input:hover {
-    background-color: #dddddd;
+    background-color: white;
 }
 
 input, select {
     border-radius: 20px;
     border-style: solid;
     border-color: #04a486;
-    background-color: #dddddd;
+    background-color: white;
 }
 
 select {

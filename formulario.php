@@ -99,6 +99,44 @@
                     selectElement.remove(i);
                 }
             }
+
+            function mascara(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "14");
+   if (v.length == 3 || v.length == 7) i.value += ".";
+   if (v.length == 11) i.value += "-";
+
+}
+
+
+function mascaraData(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+
+}
+
+function mascaraTexto(i){
+   
+   var v = i.value;
+   
+   if(!isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+
+}
   </script>
 
     <!-- Fonte -->
@@ -109,31 +147,32 @@
   <link rel="stylesheet" href="css/form.css">
 </head>
 <body onload="preencheEscolas();">
-<header>
-    <div class="container" id="nav-container">
-      <!-- add essa class -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <img id="logo" src="img/logo3 2.png" alt="Semed"> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-          <div class="navbar-nav">
-            <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
-          </div>
-        </div>
-      </nav>
-    </div> 
-  </header>
+    <header>
+        <div class="container" id="nav-container">
+        <!-- add essa class -->
+            <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <img id="logo" src="img/logo3 2.png" alt="Semed"> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                <div class="navbar-nav">
+                    <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Home</a>  
+                </div>
+            </div>
+            </nav>
+        </div> 
+    </header>
 
-     <div>
+    <div>
         <form action="processa2.php" method="post" >
             <input type="hidden" name="qtdVagas" id="qtdVagas" />
        	        		
             <h1 style="margin-bottom: 20px;">Formulário de Pré-Matrícula</h1>
             <hr>
             <fieldset>
-            <div class="escolas" ></div>
+            <div class="escolas" >
                 <br>
                 <label > Escolas:</label>
                 <select style="background-color: white" name="escolas" id = "escolas"  onchange="preencheSeries(this.value)">
@@ -144,13 +183,13 @@
                 <select style="background-color: white" name="series" id="series"  styles="padding-left: 50px" onchange="preencheQuantidadeVagas(this.value)">
                     <option value=""></option>
                 </select>
-                
-                <div>
-                    <br>
-                    <hr>
-                    <legend><h3>Dados Pessoais:</h3></legend>
-    
-                    <fieldset>
+            </div>
+
+            <div>
+                <br>
+                <hr>
+                <legend><h3>Dados Pessoais:</h3></legend>    
+                <fieldset>
                     <table>
                         <tr>
                             <td>
@@ -160,22 +199,22 @@
                                 <input style="background-color:#fff" type="text" required name="nome" size="20" maxlength="40" id="nome">
                             </td>
                         </tr>
-                        
+                    
                         <tr>
                             <td>
                                 <label>CPF:</label>
                             </td>
                             <td>
-                                <input type="text" required name="cpf" size="40" maxlength="40" id="fname">
+                                <input type="text" required name="cpf" size="20" maxlength="11" id="fname" oninput="mascara(this)">
                             </td>
                         </tr>    
-                        
+                    
                         <tr>
                             <td>
                                 <label> Mãe:</label>
                             </td>
                             <td>
-                                <input type="text" required name="mae" size="40" maxlength="40" id="mae">
+                                <input type="text" required name="mae" size="40" maxlength="40" id="mae" oninput="mascaraTexto(this)">
                             </td>
                         </tr>
 
@@ -184,20 +223,19 @@
                                 <label> Pai:</label>
                             </td>
                             <td>
-                                <input type="text" required name="pai" size="40" maxlength="40" id="pai">
+                                <input type="text" required name="pai" size="40" maxlength="40" id="pai" oninput="mascaraTexto(this)">
                             </td>
                         </tr>
-                    </table>
-                    
+                    </table> 
                     <br>
-                    
+                
                     <table>
                         <tr>
                             <td>
                                 <label>Data de Nascimento: </label><br>
-                                <input type="data" required name="dia" size="1" maxlength="2" id="dia"> <strong>/</strong>
-                                <input type="data" required name="mes" size="1" maxlength="2" id="mes"> /
-                                <input type="data" required name="ano" size="3" maxlength="6" id="ano">
+                                <input type="data" required name="dia" size="1" maxlength="2" id="dia" oninput="mascaraData(this)"> <strong>/</strong>
+                                <input type="data" required name="mes" size="1" maxlength="2" id="mes" oninput="mascaraData(this)"> /
+                                <input type="data" required name="ano" size="3" maxlength="6" id="ano" oninput="mascaraData(this)">
                             </td>
                         </tr>
                     </table>
@@ -208,8 +246,8 @@
                         <tr>
                             <td>
                                 <label>Número para contato:</label><br>  
-                                 DDD: <input type="tel" required name="ddd" size="1" maxlength="2" id="ddd">
-                                 Tel: <input type="tel" required name="telefone" size="12" maxlength="8" id="tel">
+                                DDD: <input type="tel" required name="ddd" size="1" maxlength="2" id="ddd" oninput="mascaraData(this)">
+                                Tel: <input type="tel" required name="telefone" size="12" maxlength="8" id="tel" oninput="mascaraData(this)">
                             </td>
                         </tr>
                     </table>
@@ -225,100 +263,99 @@
                         </tr>
                     </table>
                 </fieldset>
-         			<br>
-                     <hr>
-                     <legend><h3>Dados de Endereço</h3></legend>
-                     <fieldset>
-                        <table>
-                            <tr>
-                                <td>
-                                    <label for="rua">Rua:</label>
-                                </td>
-                                <td>
-                                    <input type="text" name="rua" size="35">
-                                </td>
-                                <td>
-                                    <label style="margin-left: 10px; margin-right: 10px;" for="numero">Numero:</label>
-                                </td>
-                                
-                                <td>
-                                    <input type="text" name="numero" size="6">
-                                </td>
-                            </tr>
-                         <tr>
-                          <td>
-                           <label for="bairro">Bairro: </label>
-                          </td>
-                          <td align="left">
-                           <input type="text" name="bairro" size= "25">
-                          </td>
-                         </tr>
-                         <tr>
-                          <td>
-                           <label for="estado">Estado:</label>
-                          </td>
-                          <td align="left">
-                           <select style="background-color: white" name="estado"> 
-                           <option value=""></option>
-                           <option value="ac">Acre</option> 
-                           <option value="al">Alagoas</option> 
-                           <option value="am">Amazonas</option> 
-                           <option value="ap">Amapá</option> 
-                           <option value="ba">Bahia</option> 
-                           <option value="ce">Ceará</option> 
-                           <option value="df">Distrito Federal</option> 
-                           <option value="es">Espírito Santo</option> 
-                           <option value="go">Goiás</option> 
-                           <option value="ma">Maranhão</option> 
-                           <option value="mt">Mato Grosso</option> 
-                           <option value="ms">Mato Grosso do Sul</option> 
-                           <option value="mg">Minas Gerais</option> 
-                           <option value="pa">Pará</option> 
-                           <option value="pb">Paraíba</option> 
-                           <option value="pr">Paraná</option> 
-                           <option value="pe">Pernambuco</option> 
-                           <option value="pi">Piauí</option> 
-                           <option value="rj">Rio de Janeiro</option> 
-                           <option value="rn">Rio Grande do Norte</option> 
-                           <option value="ro">Rondônia</option> 
-                           <option value="rs">Rio Grande do Sul</option> 
-                           <option value="rr">Roraima</option> 
-                           <option value="sc">Santa Catarina</option> 
-                           <option value="se">Sergipe</option> 
-                           <option value="sp">São Paulo</option> 
-                           <option value="to">Tocantins</option> 
-                          </select>
-                          </td>
-                         </tr>
-                         <tr>
-                          <td>
-                           <label for="cidade">Cidade: </label>
-                          </td>
-                          <td align="left">
-                           <input type="text" name="cidade">
-                          </td>
-                         </tr>
-                         
-                         <tr>
-                          <td>
-                           <label for="cep">CEP: </label>
-                          </td>
-                          <td align="left">
-                           <input type="text" name="cep" size="5" maxlength="5"> - <input type="text" name="cep2" size="3" maxlength="3">
-                          </td>
-                         </tr>
-                        </table>
-                       </fieldset>
-                       <br>
-                       
-        				        </div>
-                                <div style="align-items: center;": 3;>
-                               <p> <label>
-                                    <input type="submit"  name="enviar" value="Enviar" class="botao">
-                                                                        
-                                </label></p>
-                                </div>
-                               
-                                
-            </body>
-            </html>
+                <br>
+                <hr>
+                <legend><h3>Dados de Endereço</h3></legend>
+                <fieldset>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="rua">Rua:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="rua" size="35">
+                            </td>
+                            <td>
+                                <label style="margin-left: 10px; margin-right: 10px;" for="numero">Numero:</label>
+                            </td>
+                            
+                            <td>
+                                <input type="text" name="numero" size="6">
+                            </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            <label for="bairro">Bairro: </label>
+                        </td>
+                        <td>
+                            <input type="text" name="bairro" size= "25">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="estado">Estado:</label>
+                        </td>
+                        <td>
+                            <select style="background-color: white" name="estado"> 
+                                <option value=""></option>
+                                <option value="ac">Acre</option> 
+                                <option value="al">Alagoas</option> 
+                                <option value="am">Amazonas</option> 
+                                <option value="ap">Amapá</option> 
+                                <option value="ba">Bahia</option> 
+                                <option value="ce">Ceará</option> 
+                                <option value="df">Distrito Federal</option> 
+                                <option value="es">Espírito Santo</option> 
+                                <option value="go">Goiás</option> 
+                                <option value="ma">Maranhão</option> 
+                                <option value="mt">Mato Grosso</option> 
+                                <option value="ms">Mato Grosso do Sul</option> 
+                                <option value="mg">Minas Gerais</option> 
+                                <option value="pa">Pará</option> 
+                                <option value="pb">Paraíba</option> 
+                                <option value="pr">Paraná</option> 
+                                <option value="pe">Pernambuco</option> 
+                                <option value="pi">Piauí</option> 
+                                <option value="rj">Rio de Janeiro</option> 
+                                <option value="rn">Rio Grande do Norte</option> 
+                                <option value="ro">Rondônia</option> 
+                                <option value="rs">Rio Grande do Sul</option> 
+                                <option value="rr">Roraima</option> 
+                                <option value="sc">Santa Catarina</option> 
+                                <option value="se">Sergipe</option> 
+                                <option value="sp">São Paulo</option> 
+                                <option value="to">Tocantins</option> 
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="cidade">Cidade: </label>
+                        </td>
+                        <td align="left">
+                            <input type="text" name="cidade">
+                        </td>
+                    </tr>
+                        
+                    <tr>
+                        <td>
+                            <label for="cep">CEP: </label>
+                        </td>
+                        <td align="left">
+                            <input type="text" name="cep" size="5" maxlength="5"> - <input type="text" name="cep2" size="3" maxlength="3">
+                        </td>
+                    </tr>
+                    </table>
+                    </fieldset>
+                <br>
+            </div>
+        </div>
+        <div style="align-items: center;": 3;>
+            <p>
+                <label>
+                    <input type="submit"  name="enviar" value="Enviar" class="botao">                            
+                </label>
+            </p>
+        </div>         
+</body>
+</html>
