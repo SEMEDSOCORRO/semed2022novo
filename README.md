@@ -1,1 +1,0 @@
-# semed2022novo
