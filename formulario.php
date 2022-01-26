@@ -131,7 +131,7 @@ function mascaraTexto(i){
    
    var v = i.value;
    
-   if(!isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+   if(!isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja texto
       i.value = v.substring(0, v.length-1);
       return;
    }
@@ -214,7 +214,7 @@ function mascaraTexto(i){
                                 <label> Mãe:</label>
                             </td>
                             <td>
-                                <input type="text" required name="mae" size="40" maxlength="40" id="mae" oninput="mascaraTexto(this)">
+                                <input type="text" required name="mae" size="40" maxlength="40" id="mae">
                             </td>
                         </tr>
 
@@ -223,7 +223,7 @@ function mascaraTexto(i){
                                 <label> Pai:</label>
                             </td>
                             <td>
-                                <input type="text" required name="pai" size="40" maxlength="40" id="pai" oninput="mascaraTexto(this)">
+                                <input type="text" required name="pai" size="40" maxlength="40" id="pai">
                             </td>
                         </tr>
                     </table> 
@@ -247,7 +247,7 @@ function mascaraTexto(i){
                             <td>
                                 <label>Número para contato:</label><br>  
                                 DDD: <input type="tel" required name="ddd" size="1" maxlength="2" id="ddd" oninput="mascaraData(this)">
-                                Tel: <input type="tel" required name="telefone" size="12" maxlength="8" id="tel" oninput="mascaraData(this)">
+                                Tel: <input type="tel" required name="telefone" size="12" maxlength="9" id="tel" oninput="mascaraData(this)">
                             </td>
                         </tr>
                     </table>

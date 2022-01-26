@@ -34,29 +34,33 @@ $qtdVagas = $_POST['qtdVagas'];
 // Validação se já existe matricula
 
 $permiteMatricula = true;
-
+$permiteReserva = true;
 $consultaMatriculaExistente = "select * from matricula where cpf = '$cpf'";
 if ($resultado = $mysqli -> query($consultaMatriculaExistente)) {
         // testa se a quantiade de matriculas com esse cpf é maior que zero
         // se for maior que zero atribui a variáveio $permiteMatricula um valor falso
         if ($resultado -> num_rows > 0) {
                 $permiteMatricula = false;
+				// Não faz reserva
+                $permiteReserva = false;
+        }
+		
+		// pega os dados do aluno já matriculado
+		while ($linha = $resultado->fetch_array()) {
+           $nomeEscolaAlunoJaMatriculado = $linha['escolas'];
         }
 }
-
 
 // Validação de quantidade de vagas
 $sqlValidaVagas = "select * from matricula where escolas = '$escolas' and series = '$series'";
 if ($resultadoValidaVagas = $mysqli -> query($sqlValidaVagas)) {
         // testa se a quantiade de matriculas com esse cpf é maior que zero
-        // se for maior que zero atribui a variáveio $permiteMatricula um valor falso
+        // se for maior que zero atribui a variável $permiteMatricula um valor falso
         if ($resultadoValidaVagas -> num_rows >= $qtdVagas) {
                 $permiteMatricula = false;
                 $fazReserva = true;
         }
 }
-
-
 
 
 // Inserir as informações no banco de dados
@@ -75,33 +79,29 @@ if ($permiteMatricula) {
     <link rel="stylesheet" href="css/form.css">
 
     <style>  
-        #certificado{
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                border: 5px solid black;
-
-                font-family: arial;
-                font-size: 24px;
-                margin: 25px;
-                width: 40%;
-                height: 40%;
-        
-                display: flex;
-                justify-content: center;
-                align-items: center;
+        img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 10px;
         }
 
-        .container_child{
-                width: 650px;
-                height: 300px;
-                background-color: white;
+        hr {
+                margin-top: 0px;
         }
+
+        h1 {
+                margin: 30px 0px;
+                padding: 0px;
+                text-align: center;
+                font-family: 'Roboto', sans-serif;
+        }
+
 
         #titulo{
                 text-align: center;
         
+                
         }
 
         .campo{
@@ -109,45 +109,39 @@ if ($permiteMatricula) {
         }
         </style>
 </head>
-<body>
-    <header>
-        <div class="container" id="nav-container">
-        <!-- add essa class -->
-            <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-            <img id="logo" src="img/logo3 2.png" alt="Semed"> 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-                <div class="navbar-nav">
-                    <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="https://semedsocorro.com.br/matricula2023/index.php">Inicio</a>  
-                </div>
-            </div>
-            </nav>
-        </div> 
-        <br>
-        <br>
-        <br>  
-    </header>
-<body>
+
 <?php
 
-if ($matriculaEfetuada) {
+if ($matriculaEfetuada || !$permiteReserva) {
         $getDadosMatricula = "select * from matricula where escolas = '$escolas' and series = '$series' and cpf = '$cpf'";
         if ($resultadoDadosMatricula = $mysqli -> query($getDadosMatricula)) {
                 while ($linha = $resultadoDadosMatricula->fetch_array()) {
                         $dataMatricula = $linha['dataMatricula'];
+						$nomeEscolaAlunoJaMatriculado = $linha['escolas'];
+						$serieEscolaAlunoJaMatriculado = $linha['series'];
                 }
         }
         // Trabalhar no comprovante
         ?>
-        <br>
-        <br>
-        <div id="certificado" class="container">
-            <div class="container_child">
+        
+	<?php 
+        if (!$permiteReserva) { 
+                ?>
+        <div align="center" style="text-align: center;">
+		<h4> <?php 
+                echo "Esse aluno já encontra-se matriculado na escola " . $nomeEscolaAlunoJaMatriculado;
+                ?> 
+                </h4>
+                <hr>
+        </div>
+        <?php
+	}
+		
+		?>
+        <div align="bottom" id="certificado" class="box">
+                <img src="img/indice.jpg" alt="titulo_logo" width="400" height="100">
                 <div class="campo" id="titulo">
-                        COMPROVANTE DE PRE-MATRICULA:
+                        <h4>COMPROVANTE DE PRE-MATRICULA:<h4>
                         <hr style="background-color:black">
                 </div>
                 
@@ -162,15 +156,38 @@ if ($matriculaEfetuada) {
                 <div class="campo">
                         Data de cadastro: <?php echo $dataMatricula ?> 
                 </div>
-
                 <div class="campo">
-                        Escola / Série: <?php echo $escolas ?> / <?php echo $series ?>         
+                        Escola e Ano/Série: <?php echo $escolas ?> / <?php echo $series ?>         
                 </div>
                 
+                <div align="center" style="text-align: center;">
+                <h4>ORIENTAÇÕES<h4>
+                <br>
+                <div align="center" style="text-align: left;">
+                <h6>Imprima esse comprovante de pré-matrícula e dirija-se à escola selecionada, NO PRAZO MÁXIMO DE 05 DIAS, CONTADOS DA DATA DO CADASTRO, levando as cópias dos documentos abaixo, acompanhadas dos originais:<h6>
+                
+                <h6><strong>Documentos do aluno:<strong><h6>
+                <h6>A) Duas fotos 3x4;<h6>
+                <h6>B) Certidão de Nascimento;</h6>
+                <h6>C) RG;</h6>
+                <h6>D) CPF;</h6>
+                <h6>E) Cartão de vacinação atualizado;</h6>
+                <h6>F) Comprovante do Número de Identificação Social (NIS);</h6>
+                <h6>G) Cartão do Sistema Único de Saúde (SUS);</h6>
+                <h6>H) Transferência ou Declaração de Escolaridade (em caso de prosseguimento de estudos;</h6>
+                <h6>I) Comprovante de pré-matrícula.</h6> 
+                <br>
+                <h6><strong>Documentos dos pais ou responsável:</strong><h6>
+                <h6>A) RG;</h6>
+                <h6>B) CPF;<h6>
+                <h6>C) Comprovante do NIS (quando for o caso);</h6>
+                <h6>D) Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses; E) Termo de Guarda (definitivo ou provisório), declaração de responsabilidade ou declaração parental (são considerados responsáveis, para fins de matrícula, os avós e tios biológicos).</h6>
+
                 <div>
+                <div align="center" style="text-align: center;">        
                         <a href="#" onclick="javascript:window.print();">Imprimir
+                
                 </div>
-            </div>
         </div>
        <?php
 
@@ -179,40 +196,40 @@ if ($matriculaEfetuada) {
         ?>
         <body style="text-align: center;">
         <div align="center">
-        <h1> <?php echo "Infelizmente não há vagas disponíveis para essa escola nesse ano/série, gostaria de reservar uma vaga ou tentar uma vaga em outra escola?";?> </h1>
-        <form method="post" action="reserva.php">
-                <input type="hidden" value="<?php echo $nome      ;?>" name="nome"/>
-                <input type="hidden" value="<?php echo $cpf       ;?>" name="cpf"/>
-                <input type="hidden" value="<?php echo $ano       ;?>" name="ano"/>
-                <input type="hidden" value="<?php echo $mes       ;?>" name="mes"/>
-                <input type="hidden" value="<?php echo $dia       ;?>" name="dia"/>
-                <input type="hidden" value="<?php echo $pai       ;?>" name="pai"/>
-                <input type="hidden" value="<?php echo $mae       ;?>" name="mae"/>
-                <input type="hidden" value="<?php echo $telefone  ;?>" name="telefone"/>
-                <input type="hidden" value="<?php echo $email     ;?>" name="email"/>
-                <input type="hidden" value="<?php echo $rua       ;?>" name="rua"/>
-                <input type="hidden" value="<?php echo $numero    ;?>" name="numero"/>
-                <input type="hidden" value="<?php echo $bairro    ;?>" name="bairro"/>
-                <input type="hidden" value="<?php echo $estado    ;?>" name="estado"/>
-                <input type="hidden" value="<?php echo $cidade    ;?>" name="cidade"/>
-                <input type="hidden" value="<?php echo $municipio ;?>" name="municipio"/>
-                <input type="hidden" value="<?php echo $cep       ;?>" name="cep"/>
-                <input type="hidden" value="<?php echo $series    ;?>" name="series"/>
-                <input type="hidden" value="<?php echo $escolas   ;?>" name="escolas"/>
-                <input type="hidden" value="<?php echo $turno     ;?>" name="turno"/>
-                <input type="hidden" value="<?php echo $matricula ;?>" name="matricula"/>
-                <input type="hidden" value="<?php echo $qtdVagas  ;?>" name="qtdVagas"/>
-                <input type="submit" value="SIM, fazer cadastro reserva" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
-                <input type="button" value="NÃO, tentar em outra escola" onclick="history.back()" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
-        </form> 
+		<?php if ($permiteReserva) { ?>
+			<h4> <?php echo "Infelizmente não há vagas disponíveis para essa escola nesse ano/série, gostaria de reservar uma vaga ou tentar uma vaga em outra escola?";?> </h4>
+        		
+			<form method="post" action="reserva.php">
+					<input type="hidden" value="<?php echo $nome      ;?>" name="nome"/>
+					<input type="hidden" value="<?php echo $cpf       ;?>" name="cpf"/>
+					<input type="hidden" value="<?php echo $ano       ;?>" name="ano"/>
+					<input type="hidden" value="<?php echo $mes       ;?>" name="mes"/>
+					<input type="hidden" value="<?php echo $dia       ;?>" name="dia"/>
+					<input type="hidden" value="<?php echo $pai       ;?>" name="pai"/>
+					<input type="hidden" value="<?php echo $mae       ;?>" name="mae"/>
+					<input type="hidden" value="<?php echo $telefone  ;?>" name="telefone"/>
+					<input type="hidden" value="<?php echo $email     ;?>" name="email"/>
+					<input type="hidden" value="<?php echo $rua       ;?>" name="rua"/>
+					<input type="hidden" value="<?php echo $numero    ;?>" name="numero"/>
+					<input type="hidden" value="<?php echo $bairro    ;?>" name="bairro"/>
+					<input type="hidden" value="<?php echo $estado    ;?>" name="estado"/>
+					<input type="hidden" value="<?php echo $cidade    ;?>" name="cidade"/>
+					<input type="hidden" value="<?php echo $municipio ;?>" name="municipio"/>
+					<input type="hidden" value="<?php echo $cep       ;?>" name="cep"/>
+					<input type="hidden" value="<?php echo $series    ;?>" name="series"/>
+					<input type="hidden" value="<?php echo $escolas   ;?>" name="escolas"/>
+					<input type="hidden" value="<?php echo $turno     ;?>" name="turno"/>
+					<input type="hidden" value="<?php echo $matricula ;?>" name="matricula"/>
+					<input type="hidden" value="<?php echo $qtdVagas  ;?>" name="qtdVagas"/>
+					<input type="submit" value="SIM, fazer cadastro reserva" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
+					<input type="button" value="NÃO, tentar em outra escola" onclick="history.back()" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
+			</form> 
+		<?php } ?>	
         </body>
        <?php
-
-
 }
-
 mysqli_close($conexao2)
-            
+           
 ?>
          
          
