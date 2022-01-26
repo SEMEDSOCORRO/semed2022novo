@@ -86,7 +86,7 @@ if ($permiteMatricula) {
             
             <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                 <div class="navbar-nav">
-                    <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="http://localhost/SEMED_Matriculas-main/matricula2022/index.php">Inicio</a>  
+                    <a style="font-size:large; border-radius:30px; background-color: white; color:#04a486" class="nav-item nav-link" id="home-menu" href="https://semedsocorro.com.br/matricula2023/index.php">Inicio</a>  
                 </div>
             </div>
             </nav>
@@ -107,25 +107,28 @@ if ($matriculaEfetuada) {
         }
         // Trabalhar no comprovante
         ?>
-        <table border="0">
+        <div align="center">
+        <br>
+        <br>
+        <table style="border: 1px solid black; width:100%">
                 <tr>
-                        <td colspan="2"> COMPROVANTE DE PRE MATRICULA </td>
+                        <td class="recibo" colspan="2"> COMPROVANTE DE PRE-MATRICULA: </td>
                 </tr>
                 <tr>
-                        <td> Nome </td>
-                        <td> <?php echo $nome ?> </td>
+                        <td> Nome: </td>
+                        <td style="border-bottom:1px solid black"> <?php echo $nome ?> </td>
                 </tr>
                 <tr>
-                        <td> CPF </td>
-                        <td> <?php echo $cpf ?>  </td>
+                        <td> CPF: </td>
+                        <td style="border-bottom:1px solid black"> <?php echo $cpf ?>  </td>
                 </tr>
                 <tr>
-                        <td> Data de cadastro </td>
-                        <td> <?php echo $dataMatricula ?> </td>
+                        <td > Data de cadastro: </td>
+                        <td style="border-bottom:1px solid black"> <?php echo $dataMatricula ?> </td>
                 </tr>
                 <tr>
-                        <td> Escola / Série </td>
-                        <td> <?php echo $escolas ?> / <?php echo $series ?> </td>
+                        <td> Escola / Série: </td>
+                        <td style="border-bottom:1px solid black"> <?php echo $escolas ?> / <?php echo $series ?> </td>
                 </tr>
                 
                 <tr>
@@ -137,6 +140,7 @@ if ($matriculaEfetuada) {
         
                 </tr>
         </table>
+        </div>
        <?php
 
 } else {
