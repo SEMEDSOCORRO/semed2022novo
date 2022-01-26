@@ -73,6 +73,41 @@ if ($permiteMatricula) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/form.css">
+
+    <style>  
+        #certificado{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border: 5px solid black;
+
+                font-family: arial;
+                font-size: 24px;
+                margin: 25px;
+                width: 40%;
+                height: 40%;
+        
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        }
+
+        .container_child{
+                width: 650px;
+                height: 300px;
+                background-color: white;
+        }
+
+        #titulo{
+                text-align: center;
+        
+        }
+
+        .campo{
+                padding: 5px
+        }
+        </style>
 </head>
 <body>
     <header>
@@ -93,7 +128,7 @@ if ($permiteMatricula) {
         </div> 
         <br>
         <br>
-        <br> 
+        <br>  
     </header>
 <body>
 <?php
@@ -107,39 +142,35 @@ if ($matriculaEfetuada) {
         }
         // Trabalhar no comprovante
         ?>
-        <div align="center">
         <br>
         <br>
-        <table style="border: 1px solid black; width:100%">
-                <tr>
-                        <td class="recibo" colspan="2"> COMPROVANTE DE PRE-MATRICULA: </td>
-                </tr>
-                <tr>
-                        <td> Nome: </td>
-                        <td style="border-bottom:1px solid black"> <?php echo $nome ?> </td>
-                </tr>
-                <tr>
-                        <td> CPF: </td>
-                        <td style="border-bottom:1px solid black"> <?php echo $cpf ?>  </td>
-                </tr>
-                <tr>
-                        <td > Data de cadastro: </td>
-                        <td style="border-bottom:1px solid black"> <?php echo $dataMatricula ?> </td>
-                </tr>
-                <tr>
-                        <td> Escola / Série: </td>
-                        <td style="border-bottom:1px solid black"> <?php echo $escolas ?> / <?php echo $series ?> </td>
-                </tr>
+        <div id="certificado" class="container">
+            <div class="container_child">
+                <div class="campo" id="titulo">
+                        COMPROVANTE DE PRE-MATRICULA:
+                        <hr style="background-color:black">
+                </div>
                 
-                <tr>
-                        <td colspan="2"> TEXO PARA SUBSTITUIR </td>
-                        <td> </td>
-                </tr>
-                <tr>
-                        <td colspan="2"><a href="#" onclick="javascript:window.print();">Imprimir </td>
-        
-                </tr>
-        </table>
+                <div class="campo">
+                        Nome: <?php echo $nome ?>           
+                </div>
+
+                <div class="campo">
+                        CPF: <?php echo $cpf ?>            
+                </div>
+
+                <div class="campo">
+                        Data de cadastro: <?php echo $dataMatricula ?> 
+                </div>
+
+                <div class="campo">
+                        Escola / Série: <?php echo $escolas ?> / <?php echo $series ?>         
+                </div>
+                
+                <div>
+                        <a href="#" onclick="javascript:window.print();">Imprimir
+                </div>
+            </div>
         </div>
        <?php
 
