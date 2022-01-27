@@ -61,12 +61,13 @@
             </div>
          </div>
                <footer>
-                <div class="col-md-12">
-              <P>Rua Padre Manoel Gomes S/N, SN Centro - Nossa Senhora do Socorro - SE CEP 49160-000</P><p> Desenvolvido por SEMED_NTIC &copy; 2022</p>
+               <div class="col-md-12">
+              <p>Rua Padre Manoel Gomes S/N, Centro - Nossa Senhora do Socorro - SE /Telefone:(79) 2106-7457</p>
+                <p> Desenvolvido por SEMED_NTIC &copy; 2022</p>
                 </div>
              </footer>
-             <a class="whatsapp-link" href="https://api.whatsapp.com/send?phone=5599111112222" target="_blank"> 
-           <i class="fa fa-whatsapp"></i></a>
+                 
+             <a class="whatsapp-link" href="https://api.whatsapp.com/send?phone=5599111112222" target="_blank"><i class="fa fa-whatsapp"></i></a>
  </body>
 </html>
 

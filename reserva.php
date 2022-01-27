@@ -55,7 +55,44 @@ if ($permiteMatricula) {
 }
 
 
+?>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/form.css">
 
+    <style>  
+        img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 10px;
+        }
+
+        hr {
+                margin-top: 0px;
+        }
+
+        h1 {
+                margin: 30px 0px;
+                padding: 0px;
+                text-align: center;
+                font-family: 'Roboto', sans-serif;
+        }
+
+
+        #titulo{
+                text-align: center;
+        
+                
+        }
+
+        .campo{
+                padding: 5px
+        }
+        </style>
+</head>
+<?php
 if ($matriculaEfetuada) {
         $getDadosMatricula = "select * from reserva where escolas = '$escolas' and series = '$series' and cpf = '$cpf'";
         if ($resultadoDadosMatricula = $mysqli -> query($getDadosMatricula)) {
@@ -65,36 +102,57 @@ if ($matriculaEfetuada) {
         }
         // Trabalhar no comprovante
         ?>
-        <table border="0">
-                <tr>
-                        <td colspan="2"> COMPROVANTE DE RESERVA </td>
-                </tr>
-                <tr>
-                        <td> Nome </td>
-                        <td> <?php echo $nome ?> </td>
-                </tr>
-                <tr>
-                        <td> CPF </td>
-                        <td> <?php echo $cpf ?>  </td>
-                </tr>
-                <tr>
-                        <td> Data de cadastro </td>
-                        <td> <?php echo $dataMatricula ?> </td>
-                </tr>
-                <tr>
-                        <td> Escola / Série </td>
-                        <td> <?php echo $escolas ?> / <?php echo $series ?> </td>
-                </tr>
+        <div align="bottom" id="certificado" class="box">
+                <img src="img/indice.jpg" alt="titulo_logo" width="400" height="100">
+                <div class="campo" id="titulo">
+                        <h4>COMPROVANTE DE CADASTRO RESERVA<h4>
+                        <hr style="background-color:black">
+                </div>
                 
-                <tr>
-                        <td colspan="2"> TEXO PARA SUBSTITUIR </td>
-                        <td> </td>
-                </tr>
-                <tr>
-                        <td colspan="2"><a href="#" onclick="javascript:window.print();">Imprimir </td>
-        
-                </tr>
-        </table>
+                <div class="campo">
+                        Nome: <?php echo $nome ?>           
+                </div>
+
+                <div class="campo">
+                        CPF: <?php echo $cpf ?>            
+                </div>
+
+                <div class="campo">
+                        Data de cadastro: <?php echo $dataMatricula ?> 
+                </div>
+                <div class="campo">
+                        Escola e Ano/Série: <?php echo $escolas ?> / <?php echo $series ?>         
+                </div>
+                
+                <div align="center" style="text-align: center;">
+                <h4>ORIENTAÇÕES<h4>
+                <br>
+                <div align="center" style="text-align: left;">
+                <h6>Imprima esse comprovante de pré-matrícula e dirija-se à escola selecionada, NO PRAZO MÁXIMO DE 05 DIAS, CONTADOS DA DATA DO CADASTRO, levando as cópias dos documentos abaixo, acompanhadas dos originais:<h6>
+                
+                <h6><strong>Documentos do aluno:<strong><h6>
+                <h6>A) Duas fotos 3x4;<h6>
+                <h6>B) Certidão de Nascimento;</h6>
+                <h6>C) RG;</h6>
+                <h6>D) CPF;</h6>
+                <h6>E) Cartão de vacinação atualizado;</h6>
+                <h6>F) Comprovante do Número de Identificação Social (NIS);</h6>
+                <h6>G) Cartão do Sistema Único de Saúde (SUS);</h6>
+                <h6>H) Transferência ou Declaração de Escolaridade (em caso de prosseguimento de estudos;</h6>
+                <h6>I) Comprovante de pré-matrícula.</h6> 
+                <br>
+                <h6><strong>Documentos dos pais ou responsável:</strong><h6>
+                <h6>A) RG;</h6>
+                <h6>B) CPF;<h6>
+                <h6>C) Comprovante do NIS (quando for o caso);</h6>
+                <h6>D) Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses; E) Termo de Guarda (definitivo ou provisório), declaração de responsabilidade ou declaração parental (são considerados responsáveis, para fins de matrícula, os avós e tios biológicos).</h6>
+
+                <div>
+                <div align="center" style="text-align: center;">        
+                        <a href="#" onclick="javascript:window.print();">Imprimir
+                
+                </div>
+        </div>
 
 
 
@@ -116,5 +174,3 @@ if ($matriculaEfetuada) {
 mysqli_close($conexao2)
             
 ?>
-         
-         

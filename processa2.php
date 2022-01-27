@@ -78,8 +78,8 @@ if ($permiteMatricula) {
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/form.css">
 
-    <style>  
-        img {
+    <style>
+        #titulo_logo {
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
@@ -127,6 +127,7 @@ if ($matriculaEfetuada || !$permiteReserva) {
 	<?php 
         if (!$permiteReserva) { 
                 ?>
+        <body>
         <div align="center" style="text-align: center;">
 		<h4> <?php 
                 echo "Esse aluno já encontra-se matriculado na escola " . $nomeEscolaAlunoJaMatriculado;
@@ -139,7 +140,7 @@ if ($matriculaEfetuada || !$permiteReserva) {
 		
 		?>
         <div align="bottom" id="certificado" class="box">
-                <img src="img/indice.jpg" alt="titulo_logo" width="400" height="100">
+                <img id="titulo_logo" src="img/indice.jpg" alt="titulo_logo" width="400" height="100">
                 <div class="campo" id="titulo">
                         <h4>COMPROVANTE DE PRE-MATRICULA:<h4>
                         <hr style="background-color:black">
@@ -194,8 +195,9 @@ if ($matriculaEfetuada || !$permiteReserva) {
 } else {
         // Trabalhar na reserva
         ?>
-        <body style="text-align: center;">
-        <div align="center">
+        
+        <img style="width:100%" src="img/logo3 2.png" alt="Semed" ;> 
+        <div align="center" style="margin-top: 20px">
 		<?php if ($permiteReserva) { ?>
 			<h4> <?php echo "Infelizmente não há vagas disponíveis para essa escola nesse ano/série, gostaria de reservar uma vaga ou tentar uma vaga em outra escola?";?> </h4>
         		
@@ -221,7 +223,7 @@ if ($matriculaEfetuada || !$permiteReserva) {
 					<input type="hidden" value="<?php echo $turno     ;?>" name="turno"/>
 					<input type="hidden" value="<?php echo $matricula ;?>" name="matricula"/>
 					<input type="hidden" value="<?php echo $qtdVagas  ;?>" name="qtdVagas"/>
-					<input type="submit" value="SIM, fazer cadastro reserva" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
+					<input type="submit" value="SIM, fazer cadastro reserva" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif" />
 					<input type="button" value="NÃO, tentar em outra escola" onclick="history.back()" style="background-color:#04a486; color:white; border-radius: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif"/>
 			</form> 
 		<?php } ?>	
