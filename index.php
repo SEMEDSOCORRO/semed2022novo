@@ -1,75 +1,153 @@
-<!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matrícula Online 2022 -SEMED</title>
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-  
-  <!-- Estilos -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/form.css">
-  <style>
-		.whatsapp-link {
-			position: fixed;
-			width: 60px;
-			height: 60px;
-			bottom: 40px;
-			right: 40px;
-			background-color: #25d366;
-			color: #fff;
-			border-radius: 50px;
-			text-align: center;
-			font-size: 30px;
-			box-shadow: 1px 1px 2px #888;
-			z-index: 1000;
-		}
- 
-		.fa-whatsapp {
-			margin-top: 16px;
-		}
-	</style>
-  <!-- Scripts (jQuery não pode ser o slim que vem do Boostrap) -->
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/bf7e05c402.js" crossorigin="anonymous"></script>
-  <!-- Progress Bar -->
-  <script src="js/progressbar.min.js"></script>
-  <!-- Parallax -->
-  <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aleo:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import de Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            background-color: #01ab8e;
+        }
+        .footer {
+            padding: 1rem 0;
+            margin-top: auto;
+        }
+        .MenuBott {
+            padding:16px;
+            display:flex;
+            width:100%;
+        }
+        .btn {
+            border-color: #01ab8e;
+            max-width: 300px;
+            min-width: 200px;
+            font-weight: 400;
+        }
+        .flex-wrapper {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .img-overlay {
+            position: absolute;
+            top: 200px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        .img-overlay:before {
+            content: ' ';
+            display: block;
+            /* adjust 'height' to position overlay content vertically */
+            height: 50%;
+        }
+        .btn-responsive {
+            /* matches 'btn-md' */
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.3333333; 
+            border-radius: 30px;
+            border: 3px solid;
+        }
+        .whatsapp-link {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            /*right*/left: 15px;
+            /*background-color: #01ab8e;*/
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+
+            z-index: 100;
+        }
+
+        .bi-whatsapp {
+            margin-top: 16px;
+        }
+
+        @media (min-width:576px) {
+        /* matches 'btn-xs' */
+            .btn-responsive {
+                /*padding: 1px 1px;*/
+                font-size: 12px;
+                line-height: 1.5;
+                border-radius: 30px;
+            }
+        }
+    </style>
+    <title>Matrícula Online 2022 - SEMED</title> 
 </head>
 <body>
-      <!-- slider -->
-      <div id="mainSlider" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="img/banner.png" class="d-block w-100" alt="Semed">
-              <div class="carousel-caption d-md-block" style="right: 1.09023% !important; top: 45% !important; ">
-              
-                 <a href="formulario.php" class="main-btn" style="font-family: 'Aleo', serif;"><strong>Fazer Pré-Matrícula</strong></a>
-              </div>
+    <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5579996054792" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <div class="flex-wrapper">
+        <div class="container-fluid pb-3">
+            <div class="row mb-5">
+                <picture class="px-0">
+                    <source media="(min-width:576px)" srcset="img/Index3.png">
+                    <source media="(min-width:360px)" srcset="img/Index3cel.png">
+                    <img src="" class="img-fluid" alt="RESOLUCAO RUIM">
+                </picture>
             </div>
-         </div>
-               <footer>
-               <div class="col-md-12">
-              <p>Rua Padre Manoel Gomes S/N, Centro - Nossa Senhora do Socorro - SE /Telefone:(79) 2106-7457</p>
-                <p> Desenvolvido por SEMED_NTIC &copy; 2022</p>
+            <div class="img-overlay">
+                <div class="d-grid gap-2 col-6 text-center mx-auto">
+                    <a class="btn btn-responsive" style="background-color: white; color:#01ab8e" href="formulario.php" role="button"><strong>PRÉ-MATRÍCULA</strong></a>
+                    <a class="btn btn-responsive" style="background-color: white; color:#01ab8e" href="doc_page.php" role="button"><strong>DOCUMENTOS NECESSÁRIOS</strong></a>
                 </div>
-             </footer>
-                 
-             <a class="whatsapp-link" href="https://api.whatsapp.com/send?phone=5599111112222" target="_blank"><i class="fa fa-whatsapp"></i></a>
- </body>
+            </div>
+        </div>
+    
+        <footer class="footer" style="background-color: #01ab8e">
+            <div class="container">
+                <ul class="nav justify-content-center border-bottom text-center pt-3 pb-3 mb-3">
+                    <li class="nav-item" style="color:white;">Rua Padre Manoel Gomes S/N, Centro - Nossa Senhora do Socorro - SE /Telefone <i class="bi bi-whatsapp"></i> : +55 (79) 99605-4792</li>
+                </ul>
+                <p class="text-center" style="color:white;">Desenvolvido por SEMED_NTIC © 2022</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+    crossorigin="anonymous"></script>
+</body>
 </html>
 
+<!-- https://www.youtube.com/watch?v=VCVxtpjgO5Q 
 
+    @media (min-width: 400px) {
+    .element {
+        background: #cccccc;
+    }
+}
 
+@media (min-width: 500px) {
+    .element {
+        background: #888888;
+    }
+}
+
+@media (min-width: 600px) {
+    .element {
+        background: #222222;
+    }
+}
+
+-->

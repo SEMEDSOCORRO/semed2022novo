@@ -128,25 +128,7 @@ if ($matriculaEfetuada) {
                 <h4>ORIENTAÇÕES<h4>
                 <br>
                 <div align="center" style="text-align: left;">
-                <h6>Imprima esse comprovante de pré-matrícula e dirija-se à escola selecionada, NO PRAZO MÁXIMO DE 05 DIAS, CONTADOS DA DATA DO CADASTRO, levando as cópias dos documentos abaixo, acompanhadas dos originais:<h6>
-                
-                <h6><strong>Documentos do aluno:<strong><h6>
-                <h6>A) Duas fotos 3x4;<h6>
-                <h6>B) Certidão de Nascimento;</h6>
-                <h6>C) RG;</h6>
-                <h6>D) CPF;</h6>
-                <h6>E) Cartão de vacinação atualizado;</h6>
-                <h6>F) Comprovante do Número de Identificação Social (NIS);</h6>
-                <h6>G) Cartão do Sistema Único de Saúde (SUS);</h6>
-                <h6>H) Transferência ou Declaração de Escolaridade (em caso de prosseguimento de estudos;</h6>
-                <h6>I) Comprovante de pré-matrícula.</h6> 
-                <br>
-                <h6><strong>Documentos dos pais ou responsável:</strong><h6>
-                <h6>A) RG;</h6>
-                <h6>B) CPF;<h6>
-                <h6>C) Comprovante do NIS (quando for o caso);</h6>
-                <h6>D) Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses; E) Termo de Guarda (definitivo ou provisório), declaração de responsabilidade ou declaração parental (são considerados responsáveis, para fins de matrícula, os avós e tios biológicos).</h6>
-
+                <h6>Aguarde a ligação da escola ou da Secretaria de Educação em até 15 dias. Ao final deste prazo, caso não receba a ligação, dirija-se a escola. Para maiores esclarecimentos entre em contato com o telefone (79) 99605-4792</h6>
                 <div>
                 <div align="center" style="text-align: center;">        
                         <a href="#" onclick="javascript:window.print();">Imprimir

@@ -64,16 +64,27 @@ if ($resultadoValidaVagas = $mysqli -> query($sqlValidaVagas)) {
 
 
 // Inserir as informações no banco de dados
+//$series = str_replace("(","-",$series);
+//$series = str_replace(")",".",$series);
 $sql = "INSERT INTO matricula (nome,cpf,nascimento,pai,mae,telefone,email,rua,numero,bairro,estado,cidade,municipio,cep,series,escolas,turno,matricula) values ('$nome','$cpf','$nascimento','$pai', '$mae', '$telefone', '$email' , '$rua', '$numero', '$bairro', '$estado', '$cidade', '$municipio', '$cep', '$series', '$escolas', '$turno', '$matricula') ";
+
+$sqlNovo = "INSERT INTO matricula (nome,cpf,nascimento,pai,mae,telefone,email,rua,numero,bairro,estado,cidade,municipio,cep,series,escolas,turno,matricula) values ('$nome','$cpf','$nascimento','$pai', '$mae', '$telefone', '$email' , '$rua', '$numero', '$bairro', '$estado', '$cidade', '$municipio', '$cep', ?, '$escolas', '$turno', '$matricula') ";
+
+ $stmt = $conexao2->prepare($sqlNovo);
+ $stmt->bind_param('s', $series); // 's' specifies the variable type => 'string'
 
 if ($permiteMatricula) {
         $salvar = mysqli_query($conexao2, $sql);
+	 //$stmt->execute();
+
         $matriculaEfetuada = true;
 }
 
 
 ?>
 <head>
+	    <meta charset="UTF-8">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/form.css">
@@ -97,6 +108,14 @@ if ($permiteMatricula) {
                 font-family: 'Roboto', sans-serif;
         }
 
+        input {
+                margin: 5px;
+        }
+
+        p {
+                margin-bottom: 25px;
+                font-size: 24px;
+        }
 
         #titulo{
                 text-align: center;
@@ -128,6 +147,7 @@ if ($matriculaEfetuada || !$permiteReserva) {
         if (!$permiteReserva) { 
                 ?>
         <body>
+                <img style="width:100%" src="img/Head.png" alt="Semed" ;> 
         <div align="center" style="text-align: center;">
 		<h4> <?php 
                 echo "Esse aluno já encontra-se matriculado na escola " . $nomeEscolaAlunoJaMatriculado;
@@ -140,9 +160,9 @@ if ($matriculaEfetuada || !$permiteReserva) {
 		
 		?>
         <div align="bottom" id="certificado" class="box">
-                <img id="titulo_logo" src="img/indice.jpg" alt="titulo_logo" width="400" height="100">
+                <img id="titulo_logo" src="img/indice.jpg" alt="titulo_logo">
                 <div class="campo" id="titulo">
-                        <h4>COMPROVANTE DE PRE-MATRICULA:<h4>
+                        <h4>COMPROVANTE DE PRÉ-MATRÍCULA<h4>
                         <hr style="background-color:black">
                 </div>
                 
@@ -158,16 +178,16 @@ if ($matriculaEfetuada || !$permiteReserva) {
                         Data de cadastro: <?php echo $dataMatricula ?> 
                 </div>
                 <div class="campo">
-                        Escola e Ano/Série: <?php echo $escolas ?> / <?php echo $series ?>         
+                        Escola e Ano/Série: <?php echo $nomeEscolaAlunoJaMatriculado ?> / <?php echo $serieEscolaAlunoJaMatriculado ?>         
                 </div>
                 
                 <div align="center" style="text-align: center;">
-                <h4>ORIENTAÇÕES<h4>
+                <h4>ORIENTAÇÕES</h4>
                 <br>
                 <div align="center" style="text-align: left;">
-                <h6>Imprima esse comprovante de pré-matrícula e dirija-se à escola selecionada, NO PRAZO MÁXIMO DE 05 DIAS, CONTADOS DA DATA DO CADASTRO, levando as cópias dos documentos abaixo, acompanhadas dos originais:<h6>
+                <h6>Imprima esse comprovante de pré-matrícula e dirija-se à escola selecionada, A PARTIR DO DIA 14, levando as cópias dos documentos abaixo, acompanhadas dos originais:<h6>
                 
-                <h6><strong>Documentos do aluno:<strong><h6>
+                <h6><strong>Documentos do aluno:<strong></h6>
                 <h6>A) Duas fotos 3x4;<h6>
                 <h6>B) Certidão de Nascimento;</h6>
                 <h6>C) RG;</h6>
@@ -175,15 +195,15 @@ if ($matriculaEfetuada || !$permiteReserva) {
                 <h6>E) Cartão de vacinação atualizado;</h6>
                 <h6>F) Comprovante do Número de Identificação Social (NIS);</h6>
                 <h6>G) Cartão do Sistema Único de Saúde (SUS);</h6>
-                <h6>H) Transferência ou Declaração de Escolaridade (em caso de prosseguimento de estudos;</h6>
+                <h6>H) Transferência ou Declaração de Escolaridade;</h6>
                 <h6>I) Comprovante de pré-matrícula.</h6> 
                 <br>
-                <h6><strong>Documentos dos pais ou responsável:</strong><h6>
+                <h6><strong>Documentos dos pais ou responsável:</strong></h6>
                 <h6>A) RG;</h6>
                 <h6>B) CPF;<h6>
                 <h6>C) Comprovante do NIS (quando for o caso);</h6>
-                <h6>D) Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses; E) Termo de Guarda (definitivo ou provisório), declaração de responsabilidade ou declaração parental (são considerados responsáveis, para fins de matrícula, os avós e tios biológicos).</h6>
-
+                <h6>D) Comprovante de residência no nome dos pais ou responsável legal (água, luz, telefone, ou contrato de locação), atualizado ou no máximo de 03 (três)meses;</h6>
+                <h6>E) Termo de Guarda (definitivo ou provisório), declaração de responsabilidade ou declaração parental (são considerados responsáveis, para fins de matrícula, os avós e tios biológicos).</h6>
                 <div>
                 <div align="center" style="text-align: center;">        
                         <a href="#" onclick="javascript:window.print();">Imprimir
@@ -196,10 +216,10 @@ if ($matriculaEfetuada || !$permiteReserva) {
         // Trabalhar na reserva
         ?>
         
-        <img style="width:100%" src="img/logo3 2.png" alt="Semed" ;> 
+        <img style="width:100%" src="img/Head.png" alt="Semed" ;> 
         <div align="center" style="margin-top: 20px">
 		<?php if ($permiteReserva) { ?>
-			<h4> <?php echo "Infelizmente não há vagas disponíveis para essa escola nesse ano/série, gostaria de reservar uma vaga ou tentar uma vaga em outra escola?";?> </h4>
+			<p> <?php echo "Infelizmente, no momento, não há vagas disponíveis para essa escola na classe/ano/etapa. Gostaria de reservar uma vaga ou tentar uma vaga em outra escola?";?> </p>
         		
 			<form method="post" action="reserva.php">
 					<input type="hidden" value="<?php echo $nome      ;?>" name="nome"/>

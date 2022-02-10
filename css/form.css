@@ -3,7 +3,7 @@
 form {
     width: 500px;
     margin: auto;
-     }
+}
 
 input {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -14,19 +14,22 @@ input:hover {
     background-color: white;
 }
 
-input, select {
+input {
     border-radius: 20px;
     border-style: solid;
-    border-color: #04a486;
+    border-color: #01ab8e;
     background-color: white;
 }
 
 select {
+    border-radius: 20px;
+    background-color: white;
+    border-color: #01ab8e;
     border-width: 2px;
 }
 
 input.botao {
-    background-color: #04a486;
+    background-color: #01ab8e;
     color:#fff;
 }
 legend {
